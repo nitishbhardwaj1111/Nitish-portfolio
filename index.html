@@ -1,269 +1,241 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Nitish Bhardwaj | Portfolio</title>
-  <style>
-    /* ---------- RESET ---------- */
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: "Poppins", sans-serif;
-    }
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Nitish Bhardwaj – Projects</title>
+<style>
+  :root{
+    --bg:#0e0f12; --card:#14161a; --muted:#aab2c0; --text:#e8ecf3;
+    --brand:#377dff; --brand-2:#8a5cf6; --chip:#1f232b; --border:#1d2026;
+  }
+  *{box-sizing:border-box}
+  html,body{height:100%}
+  body{
+    margin:0; font:15px/1.7 "Inter", system-ui, -apple-system, Segoe UI, Roboto, Arial;
+    color:var(--text); background:radial-gradient(1200px 600px at 20% -10%, #1a2031 0%, #0e0f12 60%) fixed;
+  }
+  a{color:inherit; text-decoration:none}
 
-    body {
-      background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
-      color: #f5f5f5;
-      line-height: 1.6;
-    }
+  .banner{
+    position:relative; height:260px; width:100%;
+    background:
+      linear-gradient(120deg, rgba(55,125,255,.55), rgba(138,92,246,.55)),
+      url("https://images.unsplash.com/photo-1498050108023-c5249f4df085?q=80&w=1600&auto=format&fit=crop") center/cover no-repeat;
+  }
+  .avatar{
+    position:absolute; left:50%; transform:translateX(-50%);
+    bottom:-56px; width:112px; height:112px; border-radius:50%;
+    border:6px solid var(--bg);
+    background:url('https://avatars.githubusercontent.com/u/9919?s=200&v=4') center/cover no-repeat;
+    box-shadow:0 10px 30px rgba(0,0,0,.4);
+  }
 
-    h1, h2, h3 {
-      font-weight: 600;
-    }
+  .wrap{max-width:1160px; margin:0 auto; padding:0 24px}
+  .header{padding-top:100px; padding-bottom:28px; text-align:center;}
+  .name{font-size:32px; font-weight:700; margin-bottom:6px}
+  .role{color:var(--muted); margin-top:6px; font-size:16px}
+  .tags{display:flex; gap:10px; justify-content:center; flex-wrap:wrap; margin:16px 0 20px}
+  .chip{
+    background:var(--chip); border:1px solid var(--border); padding:8px 14px; border-radius:999px; color:#dfe7ff;
+    font-size:14px
+  }
+  .cta{display:flex; gap:12px; justify-content:center; margin-top:14px}
+  .btn{
+    border:1px solid var(--border); background:linear-gradient(180deg,#1b1e25 0%, #13161b 100%);
+    padding:12px 18px; border-radius:10px; font-weight:600; transition:transform .15s ease, border-color .15s ease;
+  }
+  .btn:hover{transform:translateY(-1px); border-color:#2a2f3a}
+  .btn.primary{background:linear-gradient(120deg,var(--brand),var(--brand-2)); border:none}
 
-    a {
-      text-decoration: none;
-      color: inherit;
-    }
+  .stats{margin:24px auto 10px; display:flex; gap:24px; justify-content:center; flex-wrap:wrap;}
+  .stat{background:var(--card); border:1px solid var(--border); border-radius:12px; padding:16px 24px; min-width:140px;
+    display:flex; flex-direction:column; align-items:center}
+  .stat .num{font-weight:800; font-size:20px}
+  .stat .label{color:var(--muted); font-size:13px; margin-top:4px}
 
-    section {
-      padding: 4rem 2rem;
-      max-width: 1200px;
-      margin: auto;
-    }
+  .tabs{margin:24px auto 0; display:flex; gap:20px; justify-content:center; flex-wrap:wrap; border-bottom:1px solid var(--border); padding-bottom:6px}
+  .tab{padding:14px 12px; color:var(--muted); position:relative; font-weight:600; font-size:15px}
+  .tab.active{color:#fff}
+  .tab.active::after{content:""; position:absolute; left:0; right:0; bottom:-1px; height:2px; background:linear-gradient(120deg,var(--brand),var(--brand-2));}
 
-    /* ---------- HERO ---------- */
-    header {
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      text-align: center;
-      background: linear-gradient(135deg, #0d6efd, #6610f2);
-      color: white;
-      padding: 2rem;
-    }
+  .filters{display:flex; gap:12px; flex-wrap:wrap; justify-content:space-between; align-items:center; padding:22px 0 12px;}
+  .left, .right{display:flex; gap:10px; flex-wrap:wrap}
+  .pill{background:#111419; border:1px solid var(--border); color:#d7def0; padding:10px 16px; border-radius:999px; font-size:13px; cursor:pointer}
+  .pill.active{background:linear-gradient(120deg,#1b2335,#161d2a); border-color:#2b3242}
 
-    header h1 {
-      font-size: 3rem;
-      margin-bottom: 1rem;
-    }
+  .grid{display:grid; gap:20px; grid-template-columns:repeat(12,1fr); margin-top:20px}
+  .card{grid-column:span 4; background:var(--card); border:1px solid var(--border); border-radius:14px; overflow:hidden;
+    transition:transform .18s ease, box-shadow .18s ease;}
+  .thumb{position:relative; aspect-ratio:16/11; background:#0f0f0f; overflow:hidden;}
+  .thumb img{width:100%; height:100%; object-fit:cover; display:block; transform:scale(1.02); transition:transform .25s ease}
+  .badge{position:absolute; top:10px; left:10px; background:rgba(0,0,0,.55); color:#fff; padding:6px 10px; border-radius:999px; font-size:12px; backdrop-filter:blur(6px)}
+  .meta{position:absolute; right:10px; bottom:10px; background:rgba(0,0,0,.55); color:#fff; padding:6px 10px; border-radius:999px; font-size:12px; display:flex; gap:10px}
+  .card:hover{transform:translateY(-4px); box-shadow:0 15px 40px rgba(0,0,0,.35)}
+  .card:hover .thumb img{transform:scale(1.06)}
+  .body{padding:18px 20px}
+  .title{font-weight:700; font-size:16px; margin-bottom:6px}
+  .subtitle{color:var(--muted); font-size:14px; line-height:1.6}
 
-    header p {
-      font-size: 1.2rem;
-      margin-top: 0.5rem;
-    }
+  #info .card{padding:24px; margin-top:16px}
+  #info .title{font-size:18px; margin-bottom:10px}
+  #info .subtitle{font-size:15px; color:#cfd3dd; line-height:1.7}
 
-    .typing {
-      font-size: 1.5rem;
-      border-right: 2px solid #fff;
-      white-space: nowrap;
-      overflow: hidden;
-      width: 0;
-      animation: typing 3s steps(40, end) forwards, blink 0.8s infinite;
-    }
+  footer{margin-top:40px; text-align:center; color:var(--muted); font-size:14px; padding:40px 20px 60px}
 
-    @keyframes typing {
-      from { width: 0 }
-      to { width: 24ch }
-    }
-    @keyframes blink {
-      50% { border-color: transparent }
-    }
-
-    /* ---------- NAV ---------- */
-    nav {
-      position: sticky;
-      top: 0;
-      background: rgba(0,0,0,0.75);
-      backdrop-filter: blur(10px);
-      padding: 1rem;
-      text-align: center;
-      z-index: 100;
-    }
-
-    nav a {
-      color: #f5f5f5;
-      margin: 0 15px;
-      font-weight: 500;
-      transition: color 0.3s;
-    }
-
-    nav a:hover {
-      color: #0d6efd;
-    }
-
-    /* ---------- CARD STYLE ---------- */
-    .card {
-      background: rgba(255,255,255,0.08);
-      border-radius: 15px;
-      padding: 1.5rem;
-      margin: 1rem 0;
-      box-shadow: 0 8px 20px rgba(0,0,0,0.3);
-      transition: transform 0.3s, box-shadow 0.3s;
-    }
-    .card:hover {
-      transform: translateY(-6px);
-      box-shadow: 0 12px 25px rgba(0,0,0,0.5);
-    }
-
-    /* ---------- GRID ---------- */
-    .grid {
-      display: grid;
-      gap: 1.5rem;
-    }
-    .grid-2 {
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    }
-    .grid-3 {
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    }
-
-    /* ---------- FOOTER ---------- */
-    footer {
-      background: #111;
-      color: #bbb;
-      text-align: center;
-      padding: 2rem;
-    }
-    .social a {
-      margin: 0 10px;
-      color: #bbb;
-      transition: 0.3s;
-    }
-    .social a:hover {
-      color: #0d6efd;
-    }
-
-    /* ---------- RESPONSIVE ---------- */
-    @media (max-width: 768px) {
-      header h1 { font-size: 2.2rem; }
-      .typing { font-size: 1.1rem; }
-      section { padding: 3rem 1rem; }
-    }
-
-    @media (max-width: 480px) {
-      nav a { display: inline-block; margin: 8px; }
-      header h1 { font-size: 1.8rem; }
-    }
-  </style>
+  @media (max-width:1100px){ .card{grid-column:span 6} }
+  @media (max-width:720px){
+    .banner{height:220px}
+    .avatar{bottom:-52px; width:100px; height:100px}
+    .header{padding-top:90px}
+    .card{grid-column:span 12}
+    .filters{gap:12px}
+  }
+</style>
 </head>
 <body>
 
-  <!-- HERO -->
-  <header>
-    <h1>Nitish Bhardwaj</h1>
-    <p class="typing">Full Stack Developer | Angular | Node.js</p>
-    <p>📍 Samastipur, Patna, Bihar | 📧 Nitishbhardwaj1111@gmail.com</p>
-  </header>
+  <div class="banner"></div>
+  <div class="avatar" aria-label="Nitish Bhardwaj avatar"></div>
 
-  <!-- NAV -->
-  <nav>
-    <a href="#about">About</a>
-    <a href="#experience">Experience</a>
-    <a href="#projects">Projects</a>
-    <a href="#skills">Skills</a>
-    <a href="#education">Education</a>
-    <a href="#contact">Contact</a>
-  </nav>
+  <section class="wrap header">
+    <div class="name">Nitish Bhardwaj</div>
+    <div class="role">Full Stack Developer — Angular • Node.js • MongoDB • Ionic</div>
+    <div class="tags">
+      <span class="chip">Available for Freelance & Full-time</span>
+      <span class="chip">India • Samastipur, Patna</span>
+      <span class="chip"><a href="mailto:Nitishbhardwaj1111@gmail.com">Nitishbhardwaj1111@gmail.com</a></span>
+    </div>
+    <div class="cta">
+      <a class="btn" href="https://www.linkedin.com/in/nitishbhardwaj1111/" target="_blank" rel="noreferrer">Follow</a>
+      <a class="btn" href="mailto:Nitishbhardwaj1111@gmail.com">Message</a>
+      <a class="btn primary" href="mailto:Nitishbhardwaj1111@gmail.com?subject=Hire%20Nitish%20Bhardwaj">Hire Nitish</a>
+    </div>
 
-  <!-- ABOUT -->
-  <section id="about">
-    <h2>About Me</h2>
+    <div class="stats">
+      <div class="stat"><div class="num">12,960</div><div class="label">Project Views</div></div>
+      <div class="stat"><div class="num">128</div><div class="label">Appreciations</div></div>
+      <div class="stat"><div class="num">340</div><div class="label">Followers</div></div>
+      <div class="stat"><div class="num">210</div><div class="label">Following</div></div>
+    </div>
+
+    <nav class="tabs" aria-label="Profile sections">
+      <a class="tab active" href="#work">Work</a>
+      <a class="tab" href="#info">Info</a>
+      <a class="tab" href="#appreciations">Appreciations</a>
+      <a class="tab" href="#moodboards">Moodboards</a>
+    </nav>
+
+    <div class="filters">
+      <div class="left">
+        <button class="pill active" data-filter="all">All</button>
+        <button class="pill" data-filter="angular">Angular</button>
+        <button class="pill" data-filter="node">Node.js</button>
+        <button class="pill" data-filter="ionic">Ionic</button>
+        <button class="pill" data-filter="react">React</button>
+      </div>
+      <div class="right">
+        <button class="pill" data-sort="recent">Sort: Recent</button>
+        <button class="pill" data-sort="popular">Sort: Popular</button>
+      </div>
+    </div>
+  </section>
+
+  <section class="wrap" id="work" aria-label="Project grid">
+    <div class="grid" id="grid">
+      <!-- Project cards -->
+      <article class="card" data-tags="angular node">
+        <div class="thumb">
+          <img src="https://images.unsplash.com/photo-1555421689-43cad7100751?q=80&w=1600&auto=format&fit=crop" alt="Health Management Information System" />
+          <span class="badge">Angular 18 • Security</span>
+          <span class="meta"><span>2.4k views</span><span>46 ♥</span></span>
+        </div>
+        <div class="body">
+          <div class="title">Health Management Information System</div>
+          <div class="subtitle">Digitized government hospital operations, implemented encryption via Angular interceptors, improved efficiency by 25% and enabled real-time collaboration across departments.</div>
+        </div>
+      </article>
+
+      <article class="card" data-tags="react node">
+        <div class="thumb">
+          <img src="https://images.unsplash.com/photo-1552581234-26160f608093?q=80&w=1600&auto=format&fit=crop" alt="Confirmed – Scheduling platform" />
+          <span class="badge">Scheduling • Calendars</span>
+          <span class="meta"><span>1.9k views</span><span>35 ♥</span></span>
+        </div>
+        <div class="body">
+          <div class="title">Confirmed – Meeting Scheduler</div>
+          <div class="subtitle">An online platform integrated with Google and Outlook APIs, reducing scheduling time by 80% and improving customer satisfaction by 20%.</div>
+        </div>
+      </article>
+
+      <article class="card" data-tags="node angular">
+        <div class="thumb">
+          <img src="https://images.unsplash.com/photo-1529070538774-1843cb3265df?q=80&w=1600&auto=format&fit=crop" alt="Fixturewire / THOR – Cargo tracking" />
+          <span class="badge">Tracking • 99.9% uptime</span>
+          <span class="meta"><span>1.4k views</span><span>20 ♥</span></span>
+        </div>
+        <div class="body">
+          <div class="title">Fixturewire / THOR</div>
+          <div class="subtitle">Developed a multi-platform solution for cargo and freight tracking, automated 40% of manual input, and ensured 99.9% uptime.</div>
+        </div>
+      </article>
+
+      <article class="card" data-tags="angular node">
+        <div class="thumb">
+          <img src="https://images.unsplash.com/photo-1517673400267-0251440c45dc?q=80&w=1600&auto=format&fit=crop" alt="CarServ – Auto repair OS" />
+          <span class="badge">B2B SaaS</span>
+          <span class="meta"><span>1.2k views</span><span>28 ♥</span></span>
+        </div>
+        <div class="body">
+          <div class="title">CarServ – Auto Repair OS</div>
+          <div class="subtitle">Built software for automotive repair shops, redesigned platform UX (+20%), and reduced repair order processing time by 30%.</div>
+        </div>
+      </article>
+
+      <article class="card" data-tags="ionic node angular">
+        <div class="thumb">
+          <img src="https://images.unsplash.com/photo-1511690656952-34342bb7c2f2?q=80&w=1600&auto=format&fit=crop" alt="Farms Healthy – Organic e-commerce" />
+          <span class="badge">E-commerce • Mobile/Web</span>
+          <span class="meta"><span>1.8k views</span><span>31 ♥</span></span>
+        </div>
+        <div class="body">
+          <div class="title">Farms Healthy</div>
+          <div class="subtitle">Developed a web and mobile platform for organic farm products, integrated secure payments, and improved backend response time by 20%.</div>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <section class="wrap" id="info" aria-label="Info">
     <div class="card">
-      <p>Full Stack Developer with 7+ years of expertise in Angular, Node.js, MongoDB, and Ionic. Strong in problem-solving, team leadership, and building scalable applications aligned with business goals.</p>
-    </div>
-  </section>
-
-  <!-- EXPERIENCE -->
-  <section id="experience">
-    <h2>Experience</h2>
-    <div class="grid grid-2">
-      <div class="card">
-        <h3>Senior Software Developer</h3>
-        <p><em>Oasys Cybernetics Pvt Ltd | 2021 - Present</em></p>
-        <ul>
-          <li>Led full-stack development lifecycle.</li>
-          <li>Implemented CI/CD pipelines.</li>
-          <li>Mentored junior developers.</li>
-        </ul>
-      </div>
-      <div class="card">
-        <h3>Software Developer</h3>
-        <p><em>75way Technologies | 2018 - 2020</em></p>
-        <ul>
-          <li>Developed multiple web applications.</li>
-          <li>Streamlined deployments.</li>
-          <li>Performed regression testing.</li>
-        </ul>
+      <div class="title">About</div>
+      <div class="subtitle">
+        Experienced and results-oriented Full Stack Developer with 7+ years of expertise in building scalable web and mobile applications using Angular, Node.js, MongoDB, and Ionic. Proven ability to lead end-to-end software development in agile environments with strong problem-solving, leadership, and mentoring skills. Adept at CI/CD, testing, and system optimization to deliver high-quality business solutions.
       </div>
     </div>
-  </section>
-
-  <!-- PROJECTS -->
-  <section id="projects">
-    <h2>Projects</h2>
-    <div class="grid grid-3">
-      <div class="card">
-        <h3>Health Management System</h3>
-        <p>Digitized hospital operations, enabling real-time collaboration.</p>
+    <div class="grid" style="margin-top:20px">
+      <div class="card" style="grid-column:span 6">
+        <div class="title">Tech Stack</div>
+        <div class="subtitle">
+          <ul style="padding-left:18px; margin:0">
+            <li><strong>Languages:</strong> JavaScript, Node.js</li>
+            <li><strong>Frameworks & Tools:</strong> AngularJS, Angular 2+, Ionic, React, Angular Material, Kendo UI</li>
+            <li><strong>Databases:</strong> MongoDB, MySQL</li>
+            <li><strong>Version Control:</strong> Git, GitHub, GitLab, Bitbucket</li>
+            <li><strong>Cloud & DevOps:</strong> CI/CD, Nginx, Postman, Jira</li>
+            <li><strong>Methodologies:</strong> Agile (Scrum, Kanban), RESTful API Design</li>
+          </ul>
+        </div>
       </div>
-      <div class="card">
-        <h3>Confirmed</h3>
-        <p>Scheduling platform with Google/Outlook API integration.</p>
+      <div class="card" style="grid-column:span 6">
+        <div class="title">Education</div>
+        <div class="subtitle">
+          <ul style="padding-left:18px; margin:0">
+            <li><strong>MCA:</strong> Sahibzada Ajit Singh Institute of IT (2016–2018)</li>
+            <li><strong>BCA:</strong> L.N. Mishra College of Business Management (2013–2016)</li>
+            <li><strong>SSC:</strong> Dr. Shaligram Misra College (2011–2013)</li>
+            <li><strong>HSC:</strong> High School Kalyanpur (2010–2011)</li>
+          </ul>
+        </div>
       </div>
-      <div class="card">
-        <h3>CarServ</h3>
-        <p>Automotive repair OS reducing order time by 30%.</p>
-      </div>
     </div>
-  </section>
-
-  <!-- SKILLS -->
-  <section id="skills">
-    <h2>Skills</h2>
-    <div class="grid grid-3">
-      <div class="card"><strong>Languages:</strong> JavaScript, Node.js</div>
-      <div class="card"><strong>Frameworks:</strong> Angular, Ionic, React</div>
-      <div class="card"><strong>Databases:</strong> MongoDB, MySQL</div>
-      <div class="card"><strong>Version Control:</strong> Git, GitHub, GitLab</div>
-      <div class="card"><strong>DevOps:</strong> CI/CD, Nginx, Postman</div>
-      <div class="card"><strong>Methodologies:</strong> Agile, RESTful APIs</div>
-    </div>
-  </section>
-
-  <!-- EDUCATION -->
-  <section id="education">
-    <h2>Education</h2>
-    <div class="grid grid-2">
-      <div class="card"><p><strong>MCA</strong> – SAS Institute of IT (2016–2018)</p></div>
-      <div class="card"><p><strong>BCA</strong> – L.N. Mishra College (2013–2016)</p></div>
-      <div class="card"><p><strong>SSC</strong> – Dr. Shaligram Misra College (2011–2013)</p></div>
-      <div class="card"><p><strong>HSC</strong> – High School Kalyanpur (2010–2011)</p></div>
-    </div>
-  </section>
-
-  <!-- CONTACT -->
-  <section id="contact">
-    <h2>Contact</h2>
-    <div class="card">
-      <p>📧 <a href="mailto:Nitishbhardwaj1111@gmail.com">Nitishbhardwaj1111@gmail.com</a></p>
-      <p>🔗 <a href="https://www.linkedin.com/in/nitishbhardwaj1111/" target="_blank">LinkedIn</a></p>
-      <p>📍 Samastipur, Patna, Bihar</p>
-    </div>
-  </section>
-
-  <!-- FOOTER -->
-  <footer>
-    <p>© 2025 Nitish Bhardwaj | Portfolio</p>
-    <div class="social">
-      <a href="https://www.linkedin.com/in/nitishbhardwaj1111/" target="_blank">LinkedIn</a>
-      <a href="mailto:Nitishbhardwaj1111@gmail.com">Email</a>
-    </div>
-  </footer>
-
-</body>
-</html>
