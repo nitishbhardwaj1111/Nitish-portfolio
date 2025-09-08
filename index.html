@@ -5,28 +5,51 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Nitish Bhardwaj | Portfolio</title>
   <style>
+    /* ---------- RESET ---------- */
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
-      font-family: "Segoe UI", sans-serif;
+      font-family: "Poppins", sans-serif;
     }
 
     body {
-      background: #f8f9fa;
-      color: #333;
+      background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+      color: #f5f5f5;
       line-height: 1.6;
     }
 
+    h1, h2, h3 {
+      font-weight: 600;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    section {
+      padding: 4rem 2rem;
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    /* ---------- HERO ---------- */
     header {
-      background: #0d6efd;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      background: linear-gradient(135deg, #0d6efd, #6610f2);
       color: white;
       padding: 2rem;
-      text-align: center;
     }
 
     header h1 {
-      font-size: 2.5rem;
+      font-size: 3rem;
+      margin-bottom: 1rem;
     }
 
     header p {
@@ -34,82 +57,110 @@
       margin-top: 0.5rem;
     }
 
+    .typing {
+      font-size: 1.5rem;
+      border-right: 2px solid #fff;
+      white-space: nowrap;
+      overflow: hidden;
+      width: 0;
+      animation: typing 3s steps(40, end) forwards, blink 0.8s infinite;
+    }
+
+    @keyframes typing {
+      from { width: 0 }
+      to { width: 24ch }
+    }
+    @keyframes blink {
+      50% { border-color: transparent }
+    }
+
+    /* ---------- NAV ---------- */
     nav {
-      background: #212529;
+      position: sticky;
+      top: 0;
+      background: rgba(0,0,0,0.75);
+      backdrop-filter: blur(10px);
       padding: 1rem;
       text-align: center;
+      z-index: 100;
     }
 
     nav a {
-      color: white;
+      color: #f5f5f5;
       margin: 0 15px;
-      text-decoration: none;
-      font-weight: bold;
-      transition: 0.3s;
+      font-weight: 500;
+      transition: color 0.3s;
     }
 
     nav a:hover {
       color: #0d6efd;
     }
 
-    section {
-      padding: 3rem 2rem;
-      max-width: 1000px;
-      margin: auto;
-    }
-
-    h2 {
-      font-size: 1.8rem;
-      margin-bottom: 1rem;
-      border-left: 5px solid #0d6efd;
-      padding-left: 10px;
-    }
-
+    /* ---------- CARD STYLE ---------- */
     .card {
-      background: white;
+      background: rgba(255,255,255,0.08);
+      border-radius: 15px;
       padding: 1.5rem;
-      border-radius: 10px;
-      margin-bottom: 1.5rem;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.05);
-      transition: transform 0.2s;
+      margin: 1rem 0;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+      transition: transform 0.3s, box-shadow 0.3s;
     }
-
     .card:hover {
-      transform: translateY(-5px);
+      transform: translateY(-6px);
+      box-shadow: 0 12px 25px rgba(0,0,0,0.5);
     }
 
-    ul {
-      margin-left: 20px;
+    /* ---------- GRID ---------- */
+    .grid {
+      display: grid;
+      gap: 1.5rem;
+    }
+    .grid-2 {
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    }
+    .grid-3 {
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     }
 
+    /* ---------- FOOTER ---------- */
     footer {
-      background: #212529;
-      color: white;
+      background: #111;
+      color: #bbb;
       text-align: center;
-      padding: 1.5rem;
-      margin-top: 2rem;
+      padding: 2rem;
     }
-
-    .social-links a {
+    .social a {
       margin: 0 10px;
-      color: white;
-      text-decoration: none;
+      color: #bbb;
       transition: 0.3s;
     }
-
-    .social-links a:hover {
+    .social a:hover {
       color: #0d6efd;
+    }
+
+    /* ---------- RESPONSIVE ---------- */
+    @media (max-width: 768px) {
+      header h1 { font-size: 2.2rem; }
+      .typing { font-size: 1.1rem; }
+      section { padding: 3rem 1rem; }
+    }
+
+    @media (max-width: 480px) {
+      nav a { display: inline-block; margin: 8px; }
+      header h1 { font-size: 1.8rem; }
     }
   </style>
 </head>
 <body>
 
+  <!-- HERO -->
   <header>
     <h1>Nitish Bhardwaj</h1>
-    <p>Full Stack Developer | Angular | Node.js | MongoDB | Ionic</p>
-    <p>📍 Samastipur, Patna, Bihar | 📧 Nitishbhardwaj1111@gmail.com | 📞 +91-7973749455</p>
+    <p class="typing">Full Stack Developer | Angular | Node.js</p>
+    <p>📍 Samastipur, Patna, Bihar | 📧 Nitishbhardwaj1111@gmail.com</p>
   </header>
 
+  <!-- NAV -->
   <nav>
     <a href="#about">About</a>
     <a href="#experience">Experience</a>
@@ -119,89 +170,96 @@
     <a href="#contact">Contact</a>
   </nav>
 
+  <!-- ABOUT -->
   <section id="about">
     <h2>About Me</h2>
     <div class="card">
-      <p>Experienced and results-oriented Full Stack Developer with 7+ years of expertise in building scalable web and mobile applications using Angular, Node.js, MongoDB, and Ionic. Proven ability to lead end-to-end software development in agile environments with strong problem-solving and leadership skills.</p>
+      <p>Full Stack Developer with 7+ years of expertise in Angular, Node.js, MongoDB, and Ionic. Strong in problem-solving, team leadership, and building scalable applications aligned with business goals.</p>
     </div>
   </section>
 
+  <!-- EXPERIENCE -->
   <section id="experience">
-    <h2>Work Experience</h2>
-    <div class="card">
-      <h3>Senior Software Developer — Oasys Cybernetics Pvt Ltd</h3>
-      <p><em>Apr 2021 – Present | Remote</em></p>
-      <ul>
-        <li>Led full-stack development lifecycle from design to deployment.</li>
-        <li>Architected and optimized scalable systems for high availability.</li>
-        <li>Mentored junior developers and enforced coding best practices.</li>
-        <li>Implemented CI/CD pipelines and modernized legacy systems.</li>
-      </ul>
-    </div>
-
-    <div class="card">
-      <h3>Software Developer — 75way Technologies Pvt Ltd</h3>
-      <p><em>Jan 2018 – Nov 2020 | Panchkula, Haryana</em></p>
-      <ul>
-        <li>Collaborated on all stages of the SDLC for multiple applications.</li>
-        <li>Performed regression and system-level testing before release.</li>
-        <li>Streamlined deployment with CI tools and Git workflows.</li>
-      </ul>
+    <h2>Experience</h2>
+    <div class="grid grid-2">
+      <div class="card">
+        <h3>Senior Software Developer</h3>
+        <p><em>Oasys Cybernetics Pvt Ltd | 2021 - Present</em></p>
+        <ul>
+          <li>Led full-stack development lifecycle.</li>
+          <li>Implemented CI/CD pipelines.</li>
+          <li>Mentored junior developers.</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>Software Developer</h3>
+        <p><em>75way Technologies | 2018 - 2020</em></p>
+        <ul>
+          <li>Developed multiple web applications.</li>
+          <li>Streamlined deployments.</li>
+          <li>Performed regression testing.</li>
+        </ul>
+      </div>
     </div>
   </section>
 
+  <!-- PROJECTS -->
   <section id="projects">
     <h2>Projects</h2>
-    <div class="card">
-      <h3>Health Management Information System</h3>
-      <p>Digitized government hospital operations, improving efficiency and enabling real-time collaboration across departments.</p>
-    </div>
-
-    <div class="card">
-      <h3>Confirmed</h3>
-      <p>Online meeting scheduling platform integrated with Google/Outlook APIs, reducing confirmation time by 80%.</p>
-    </div>
-
-    <div class="card">
-      <h3>CarServ</h3>
-      <p>Developed an automotive repair management system, reducing repair order time by 30%.</p>
+    <div class="grid grid-3">
+      <div class="card">
+        <h3>Health Management System</h3>
+        <p>Digitized hospital operations, enabling real-time collaboration.</p>
+      </div>
+      <div class="card">
+        <h3>Confirmed</h3>
+        <p>Scheduling platform with Google/Outlook API integration.</p>
+      </div>
+      <div class="card">
+        <h3>CarServ</h3>
+        <p>Automotive repair OS reducing order time by 30%.</p>
+      </div>
     </div>
   </section>
 
+  <!-- SKILLS -->
   <section id="skills">
-    <h2>Tech Skills</h2>
-    <div class="card">
-      <p><strong>Languages:</strong> JavaScript, Node.js</p>
-      <p><strong>Frameworks:</strong> Angular (JS & 2+), Ionic, Angular Material, Kendo UI, React</p>
-      <p><strong>Database:</strong> MongoDB, MySQL</p>
-      <p><strong>Version Control:</strong> Git, GitHub, GitLab, Bitbucket</p>
-      <p><strong>Cloud & DevOps:</strong> CI/CD, Jira, Nginx, Postman</p>
-      <p><strong>Methodologies:</strong> Agile (Scrum, Kanban), RESTful APIs</p>
+    <h2>Skills</h2>
+    <div class="grid grid-3">
+      <div class="card"><strong>Languages:</strong> JavaScript, Node.js</div>
+      <div class="card"><strong>Frameworks:</strong> Angular, Ionic, React</div>
+      <div class="card"><strong>Databases:</strong> MongoDB, MySQL</div>
+      <div class="card"><strong>Version Control:</strong> Git, GitHub, GitLab</div>
+      <div class="card"><strong>DevOps:</strong> CI/CD, Nginx, Postman</div>
+      <div class="card"><strong>Methodologies:</strong> Agile, RESTful APIs</div>
     </div>
   </section>
 
+  <!-- EDUCATION -->
   <section id="education">
     <h2>Education</h2>
-    <div class="card">
-      <p><strong>MCA:</strong> Sahibzada Ajit Singh Institute of IT (2016–2018)</p>
-      <p><strong>BCA:</strong> L.N. Mishra College of Business Management (2013–2016)</p>
-      <p><strong>SSC:</strong> Dr. Shaligram Misra College (2011–2013)</p>
-      <p><strong>HSC:</strong> High School Kalyanpur (2010–2011)</p>
+    <div class="grid grid-2">
+      <div class="card"><p><strong>MCA</strong> – SAS Institute of IT (2016–2018)</p></div>
+      <div class="card"><p><strong>BCA</strong> – L.N. Mishra College (2013–2016)</p></div>
+      <div class="card"><p><strong>SSC</strong> – Dr. Shaligram Misra College (2011–2013)</p></div>
+      <div class="card"><p><strong>HSC</strong> – High School Kalyanpur (2010–2011)</p></div>
     </div>
   </section>
 
+  <!-- CONTACT -->
   <section id="contact">
     <h2>Contact</h2>
     <div class="card">
-      <p>📧 Email: <a href="mailto:Nitishbhardwaj1111@gmail.com">Nitishbhardwaj1111@gmail.com</a></p>
-      <p>🔗 LinkedIn: <a href="https://www.linkedin.com/in/nitishbhardwaj1111/" target="_blank">linkedin.com/in/nitishbhardwaj1111</a></p>
-      <p>📍 Location: Samastipur, Patna, Bihar</p>
+      <p>📧 <a href="mailto:Nitishbhardwaj1111@gmail.com">Nitishbhardwaj1111@gmail.com</a></p>
+      <p>🔗 <a href="https://www.linkedin.com/in/nitishbhardwaj1111/" target="_blank">LinkedIn</a></p>
+      <p>📍 Samastipur, Patna, Bihar</p>
     </div>
   </section>
 
+  <!-- FOOTER -->
   <footer>
     <p>© 2025 Nitish Bhardwaj | Portfolio</p>
-    <div class="social-links">
+    <div class="social">
       <a href="https://www.linkedin.com/in/nitishbhardwaj1111/" target="_blank">LinkedIn</a>
       <a href="mailto:Nitishbhardwaj1111@gmail.com">Email</a>
     </div>
