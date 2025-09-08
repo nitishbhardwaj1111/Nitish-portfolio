@@ -1,102 +1,265 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Nitish Bhardwaj – Projects</title>
-<style>
-  :root{
-    --bg:#0e0f12; --card:#14161a; --muted:#aab2c0; --text:#e8ecf3;
-    --brand:#377dff; --brand-2:#8a5cf6; --chip:#1f232b; --border:#1d2026;
-  }
-  *{box-sizing:border-box}
-  html,body{height:100%}
-  body{
-    margin:0; font:15px/1.7 "Inter", system-ui, -apple-system, Segoe UI, Roboto, Arial;
-    color:var(--text); background:radial-gradient(1200px 600px at 20% -10%, #1a2031 0%, #0e0f12 60%) fixed;
-  }
-  a{color:inherit; text-decoration:none}
-
-  .banner{
-    position:relative; height:260px; width:100%;
-    background:
-      linear-gradient(120deg, rgba(55,125,255,.55), rgba(138,92,246,.55)),
-      url("https://images.unsplash.com/photo-1498050108023-c5249f4df085?q=80&w=1600&auto=format&fit=crop") center/cover no-repeat;
-  }
-  .avatar{
-    position:absolute; left:50%; transform:translateX(-50%);
-    bottom:-56px; width:112px; height:112px; border-radius:50%;
-    border:6px solid var(--bg);
-    background:url('https://avatars.githubusercontent.com/u/9919?s=200&v=4') center/cover no-repeat;
-    box-shadow:0 10px 30px rgba(0,0,0,.4);
-  }
-
-  .wrap{max-width:1160px; margin:0 auto; padding:0 24px}
-  .header{padding-top:100px; padding-bottom:28px; text-align:center;}
-  .name{font-size:32px; font-weight:700; margin-bottom:6px}
-  .role{color:var(--muted); margin-top:6px; font-size:16px}
-  .tags{display:flex; gap:10px; justify-content:center; flex-wrap:wrap; margin:16px 0 20px}
-  .chip{
-    background:var(--chip); border:1px solid var(--border); padding:8px 14px; border-radius:999px; color:#dfe7ff;
-    font-size:14px
-  }
-  .cta{display:flex; gap:12px; justify-content:center; margin-top:14px}
-  .btn{
-    border:1px solid var(--border); background:linear-gradient(180deg,#1b1e25 0%, #13161b 100%);
-    padding:12px 18px; border-radius:10px; font-weight:600; transition:transform .15s ease, border-color .15s ease;
-  }
-  .btn:hover{transform:translateY(-1px); border-color:#2a2f3a}
-  .btn.primary{background:linear-gradient(120deg,var(--brand),var(--brand-2)); border:none}
-
-  .stats{margin:24px auto 10px; display:flex; gap:24px; justify-content:center; flex-wrap:wrap;}
-  .stat{background:var(--card); border:1px solid var(--border); border-radius:12px; padding:16px 24px; min-width:140px;
-    display:flex; flex-direction:column; align-items:center}
-  .stat .num{font-weight:800; font-size:20px}
-  .stat .label{color:var(--muted); font-size:13px; margin-top:4px}
-
-  .tabs{margin:24px auto 0; display:flex; gap:20px; justify-content:center; flex-wrap:wrap; border-bottom:1px solid var(--border); padding-bottom:6px}
-  .tab{padding:14px 12px; color:var(--muted); position:relative; font-weight:600; font-size:15px}
-  .tab.active{color:#fff}
-  .tab.active::after{content:""; position:absolute; left:0; right:0; bottom:-1px; height:2px; background:linear-gradient(120deg,var(--brand),var(--brand-2));}
-
-  .filters{display:flex; gap:12px; flex-wrap:wrap; justify-content:space-between; align-items:center; padding:22px 0 12px;}
-  .left, .right{display:flex; gap:10px; flex-wrap:wrap}
-  .pill{background:#111419; border:1px solid var(--border); color:#d7def0; padding:10px 16px; border-radius:999px; font-size:13px; cursor:pointer}
-  .pill.active{background:linear-gradient(120deg,#1b2335,#161d2a); border-color:#2b3242}
-
-  .grid{display:grid; gap:20px; grid-template-columns:repeat(12,1fr); margin-top:20px}
-  .card{grid-column:span 4; background:var(--card); border:1px solid var(--border); border-radius:14px; overflow:hidden;
-    transition:transform .18s ease, box-shadow .18s ease;}
-  .thumb{position:relative; aspect-ratio:16/11; background:#0f0f0f; overflow:hidden;}
-  .thumb img{width:100%; height:100%; object-fit:cover; display:block; transform:scale(1.02); transition:transform .25s ease}
-  .badge{position:absolute; top:10px; left:10px; background:rgba(0,0,0,.55); color:#fff; padding:6px 10px; border-radius:999px; font-size:12px; backdrop-filter:blur(6px)}
-  .meta{position:absolute; right:10px; bottom:10px; background:rgba(0,0,0,.55); color:#fff; padding:6px 10px; border-radius:999px; font-size:12px; display:flex; gap:10px}
-  .card:hover{transform:translateY(-4px); box-shadow:0 15px 40px rgba(0,0,0,.35)}
-  .card:hover .thumb img{transform:scale(1.06)}
-  .body{padding:18px 20px}
-  .title{font-weight:700; font-size:16px; margin-bottom:6px}
-  .subtitle{color:var(--muted); font-size:14px; line-height:1.6}
-
-  #info .card{padding:24px; margin-top:16px}
-  #info .title{font-size:18px; margin-bottom:10px}
-  #info .subtitle{font-size:15px; color:#cfd3dd; line-height:1.7}
-
-  footer{margin-top:40px; text-align:center; color:var(--muted); font-size:14px; padding:40px 20px 60px}
-
-  @media (max-width:1100px){ .card{grid-column:span 6} }
-  @media (max-width:720px){
-    .banner{height:220px}
-    .avatar{bottom:-52px; width:100px; height:100px}
-    .header{padding-top:90px}
-    .card{grid-column:span 12}
-    .filters{gap:12px}
-  }
-</style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Nitish Bhardwaj | Portfolio</title>
+  <style>
+    :root {
+      --bg: #0e0f12;
+      --card: #14161a;
+      --muted: #aab2c0;
+      --text: #e8ecf3;
+      --brand: #377dff;
+      --brand2: #8a5cf6;
+      --chip: #1f232b;
+      --border: #1d2026;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html, body { height: 100%; }
+    body {
+      font: 15px/1.7 "Inter", system-ui, sans-serif;
+      color: var(--text);
+      background: radial-gradient(
+        1200px 600px at 20% -10%,
+        #1a2031 0%,
+        #0e0f12 60%
+      ) fixed;
+    }
+    a { color: inherit; text-decoration: none; }
+    .banner {
+      position: relative;
+      height: 260px;
+      background:
+        linear-gradient(120deg, rgba(55,125,255,0.55), rgba(138,92,246,0.55)),
+        url("https://images.unsplash.com/photo-1498050108023-c5249f4df085?q=80&w=1600&auto=format&fit=crop")
+          center/cover no-repeat;
+    }
+    .avatar {
+      position: absolute;
+      left: 50%;
+      bottom: -56px;
+      transform: translateX(-50%);
+      width: 112px;
+      height: 112px;
+      border-radius: 50%;
+      border: 6px solid var(--bg);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+    }
+    .wrap { max-width: 1160px; margin: 0 auto; padding: 0 24px; }
+    .header {
+      padding-top: 100px;
+      padding-bottom: 28px;
+      text-align: center;
+    }
+    .name { font-size: 32px; font-weight: 700; margin-bottom: 6px; }
+    .role { font-size: 16px; color: var(--muted); margin-top: 6px; }
+    .tags {
+      display: flex;
+      gap: 10px;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin: 16px 0 20px;
+    }
+    .chip {
+      background: var(--chip);
+      border: 1px solid var(--border);
+      padding: 8px 14px;
+      border-radius: 999px;
+      color: #dfe7ff;
+      font-size: 14px;
+    }
+    .cta {
+      display: flex;
+      gap: 12px;
+      justify-content: center;
+      margin-top: 14px;
+    }
+    .btn {
+      border: 1px solid var(--border);
+      background: linear-gradient(180deg, #1b1e25 0%, #13161b 100%);
+      padding: 12px 18px;
+      border-radius: 10px;
+      font-weight: 600;
+      transition: transform 0.15s ease, border-color 0.15s ease;
+    }
+    .btn:hover { transform: translateY(-1px); border-color: #2a2f3a; }
+    .btn.primary {
+      background: linear-gradient(120deg, var(--brand), var(--brand2));
+      border: none;
+      color: #fff;
+    }
+    .stats {
+      margin: 24px auto 10px;
+      display: flex;
+      gap: 24px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+    .stat {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 16px 24px;
+      min-width: 140px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .stat .num { font-size: 20px; font-weight: 800; }
+    .stat .label { font-size: 13px; color: var(--muted); margin-top: 4px; }
+    .tabs {
+      margin: 36px auto 0;
+      display: flex;
+      gap: 20px;
+      justify-content: center;
+      flex-wrap: wrap;
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 6px;
+    }
+    .tab {
+      padding: 14px 12px;
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--muted);
+      position: relative;
+    }
+    .tab.active { color: #fff; }
+    .tab.active::after {
+      content: "";
+      position: absolute;
+      left: 0; right: 0; bottom: -1px;
+      height: 2px;
+      background: linear-gradient(120deg, var(--brand), var(--brand2));
+    }
+    .filters {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      padding: 22px 0 12px;
+    }
+    .left, .right { display: flex; gap: 10px; flex-wrap: wrap; }
+    .pill {
+      background: #111419;
+      border: 1px solid var(--border);
+      color: #d7def0;
+      padding: 10px 16px;
+      border-radius: 999px;
+      font-size: 13px;
+      cursor: pointer;
+      transition: background 0.2s, border-color 0.2s;
+    }
+    .pill.active {
+      background: linear-gradient(120deg, #1b2335, #161d2a);
+      border-color: #2b3242;
+    }
+    .grid {
+      display: grid;
+      gap: 20px;
+      grid-template-columns: repeat(12, 1fr);
+      margin-top: 20px;
+    }
+    .card {
+      grid-column: span 4;
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      overflow: hidden;
+      transition: transform 0.18s ease, box-shadow 0.18s ease;
+    }
+    .card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.35);
+    }
+    .thumb {
+      position: relative;
+      aspect-ratio: 16/11;
+      background: #0f0f0f;
+      overflow: hidden;
+    }
+    .thumb img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transform: scale(1.02);
+      transition: transform 0.25s ease;
+    }
+    .card:hover .thumb img { transform: scale(1.06); }
+    .badge {
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      background: rgba(0, 0, 0, 0.55);
+      color: #fff;
+      padding: 6px 10px;
+      border-radius: 999px;
+      font-size: 12px;
+      backdrop-filter: blur(6px);
+    }
+    .meta {
+      position: absolute;
+      right: 10px;
+      bottom: 10px;
+      background: rgba(0, 0, 0, 0.55);
+      color: #fff;
+      padding: 6px 10px;
+      border-radius: 999px;
+      font-size: 12px;
+      display: flex;
+      gap: 10px;
+    }
+    .body { padding: 18px 20px; }
+    .title {
+      font-size: 16px;
+      font-weight: 700;
+      margin-bottom: 6px;
+    }
+    .subtitle {
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.6;
+    }
+    #info .card { padding: 24px; margin-top: 16px; }
+    #info .title { font-size: 18px; margin-bottom: 10px; }
+    #info .subtitle {
+      font-size: 15px;
+      color: #cfd3dd;
+      line-height: 1.7;
+    }
+    #techstack .card { padding: 24px; margin-top: 16px; }
+    #techstack .title { font-size: 18px; margin-bottom: 10px; }
+    #techstack .subtitle {
+      font-size: 15px;
+      color: #cfd3dd;
+      line-height: 1.7;
+    }
+    footer {
+      margin-top: 40px;
+      text-align: center;
+      color: var(--muted);
+      font-size: 14px;
+      padding: 40px 20px 60px;
+    }
+    footer a { margin: 0 8px; }
+    footer a:hover { color: #fff; }
+    @media (max-width: 1100px) {
+      .card { grid-column: span 6; }
+    }
+    @media (max-width: 720px) {
+      .banner { height: 220px; }
+      .avatar { bottom: -52px; width: 100px; height: 100px; }
+      .header { padding-top: 90px; }
+      .card { grid-column: span 12; }
+      .filters { gap: 12px; }
+    }
+  </style>
 </head>
 <body>
-
   <div class="banner"></div>
-  <div class="avatar" aria-label="Nitish Bhardwaj avatar"></div>
+  <img class="avatar" src="https://avatars.githubusercontent.com/u/43879303?v=4" alt="Nitish's GitHub avatar" />
 
   <section class="wrap header">
     <div class="name">Nitish Bhardwaj</div>
@@ -107,23 +270,25 @@
       <span class="chip"><a href="mailto:Nitishbhardwaj1111@gmail.com">Nitishbhardwaj1111@gmail.com</a></span>
     </div>
     <div class="cta">
-      <a class="btn" href="https://www.linkedin.com/in/nitishbhardwaj1111/" target="_blank" rel="noreferrer">Follow</a>
+      <a class="btn" href="https://github.com/nitishbhardwaj1111" target="_blank" rel="noreferrer">Follow</a>
       <a class="btn" href="mailto:Nitishbhardwaj1111@gmail.com">Message</a>
-      <a class="btn primary" href="mailto:Nitishbhardwaj1111@gmail.com?subject=Hire%20Nitish%20Bhardwaj">Hire Nitish</a>
+      <a class="btn primary" href="mailto:Nitishbhardwaj1111@gmail.com?subject=Hire%20Nitish">
+        Hire Nitish
+      </a>
     </div>
 
     <div class="stats">
-      <div class="stat"><div class="num">12,960</div><div class="label">Project Views</div></div>
+      <div class="stat"><div class="num">12.9k</div><div class="label">Project Views</div></div>
       <div class="stat"><div class="num">128</div><div class="label">Appreciations</div></div>
       <div class="stat"><div class="num">340</div><div class="label">Followers</div></div>
       <div class="stat"><div class="num">210</div><div class="label">Following</div></div>
     </div>
 
-    <nav class="tabs" aria-label="Profile sections">
+    <nav class="tabs">
       <a class="tab active" href="#work">Work</a>
       <a class="tab" href="#info">Info</a>
-      <a class="tab" href="#appreciations">Appreciations</a>
-      <a class="tab" href="#moodboards">Moodboards</a>
+      <a class="tab" href="#techstack">Tech Stack</a>
+      <a class="tab" href="#techstack">Education</a>
     </nav>
 
     <div class="filters">
@@ -141,18 +306,19 @@
     </div>
   </section>
 
-  <section class="wrap" id="work" aria-label="Project grid">
+  <section id="work" class="wrap">
     <div class="grid" id="grid">
-      <!-- Project cards -->
-      <article class="card" data-tags="angular node">
+      <article class="card" data-tags="angular node" data-popularity="2400" data-date="2025-01-01">
         <div class="thumb">
-          <img src="https://images.unsplash.com/photo-1555421689-43cad7100751?q=80&w=1600&auto=format&fit=crop" alt="Health Management Information System" />
-          <span class="badge">Angular 18 • Security</span>
+          <img src="https://images.unsplash.com/photo-1529070538774-1843cb3265df?q=80&w=1600&auto=format&fit=crop" alt="Healthcare project"/>
+          <span class="badge">Angular • Security</span>
           <span class="meta"><span>2.4k views</span><span>46 ♥</span></span>
         </div>
         <div class="body">
           <div class="title">Health Management Information System</div>
-          <div class="subtitle">Digitized government hospital operations, implemented encryption via Angular interceptors, improved efficiency by 25% and enabled real-time collaboration across departments.</div>
+          <div class="subtitle">
+            Digitized hospital operations, implemented encryption via Angular interceptors, improved operational efficiency & enabled real-time collaboration.
+          </div>
         </div>
       </article>
 
@@ -203,16 +369,19 @@
           <div class="subtitle">Developed a web and mobile platform for organic farm products, integrated secure payments, and improved backend response time by 20%.</div>
         </div>
       </article>
+      <!-- Other project cards... -->
     </div>
   </section>
 
-  <section class="wrap" id="info" aria-label="Info">
+  <section id="info" class="wrap">
     <div class="card">
       <div class="title">About</div>
       <div class="subtitle">
         Experienced and results-oriented Full Stack Developer with 7+ years of expertise in building scalable web and mobile applications using Angular, Node.js, MongoDB, and Ionic. Proven ability to lead end-to-end software development in agile environments with strong problem-solving, leadership, and mentoring skills. Adept at CI/CD, testing, and system optimization to deliver high-quality business solutions.
       </div>
     </div>
+  </section>
+  <section id="techstack" class="wrap">
     <div class="grid" style="margin-top:20px">
       <div class="card" style="grid-column:span 6">
         <div class="title">Tech Stack</div>
@@ -239,3 +408,43 @@
         </div>
       </div>
     </div>
+  </section>
+
+  <footer>
+    <p>
+      © 2025 Nitish Bhardwaj •
+      <a href="https://github.com/nitishbhardwaj1111" target="_blank" rel="noreferrer">GitHub</a> •
+      <a href="mailto:Nitishbhardwaj1111@gmail.com">Email</a>
+    </p>
+  </footer>
+
+  <script>
+    const filterBtns = document.querySelectorAll("[data-filter]");
+    const cards = document.querySelectorAll(".card");
+    filterBtns.forEach((btn) => {
+      btn.addEventListener("click", () => {
+        filterBtns.forEach(x => x.classList.remove("active"));
+        btn.classList.add("active");
+        const filter = btn.dataset.filter;
+        cards.forEach(c => {
+          c.style.display = filter === "all" || c.dataset.tags.includes(filter) ? "" : "none";
+        });
+      });
+    });
+
+    const sortBtns = document.querySelectorAll("[data-sort]");
+    sortBtns.forEach(btn => btn.addEventListener("click", () => {
+      const grid = document.getElementById("grid");
+      const items = Array.from(grid.children);
+      const sortType = btn.dataset.sort;
+      sortBtns.forEach(x => x.classList.remove("active"));
+      btn.classList.add("active");
+      items.sort((a, b) => sortType === "popular"
+        ? b.dataset.popularity - a.dataset.popularity
+        : new Date(b.dataset.date) - new Date(a.dataset.date)
+      );
+      items.forEach(i => grid.appendChild(i));
+    }));
+  </script>
+</body>
+</html>
