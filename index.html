@@ -1,53 +1,211 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Nitish Bhardwaj | Portfolio</title>
-  <link rel="stylesheet" href="style.css" />
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: "Segoe UI", sans-serif;
+    }
+
+    body {
+      background: #f8f9fa;
+      color: #333;
+      line-height: 1.6;
+    }
+
+    header {
+      background: #0d6efd;
+      color: white;
+      padding: 2rem;
+      text-align: center;
+    }
+
+    header h1 {
+      font-size: 2.5rem;
+    }
+
+    header p {
+      font-size: 1.2rem;
+      margin-top: 0.5rem;
+    }
+
+    nav {
+      background: #212529;
+      padding: 1rem;
+      text-align: center;
+    }
+
+    nav a {
+      color: white;
+      margin: 0 15px;
+      text-decoration: none;
+      font-weight: bold;
+      transition: 0.3s;
+    }
+
+    nav a:hover {
+      color: #0d6efd;
+    }
+
+    section {
+      padding: 3rem 2rem;
+      max-width: 1000px;
+      margin: auto;
+    }
+
+    h2 {
+      font-size: 1.8rem;
+      margin-bottom: 1rem;
+      border-left: 5px solid #0d6efd;
+      padding-left: 10px;
+    }
+
+    .card {
+      background: white;
+      padding: 1.5rem;
+      border-radius: 10px;
+      margin-bottom: 1.5rem;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+      transition: transform 0.2s;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+    }
+
+    ul {
+      margin-left: 20px;
+    }
+
+    footer {
+      background: #212529;
+      color: white;
+      text-align: center;
+      padding: 1.5rem;
+      margin-top: 2rem;
+    }
+
+    .social-links a {
+      margin: 0 10px;
+      color: white;
+      text-decoration: none;
+      transition: 0.3s;
+    }
+
+    .social-links a:hover {
+      color: #0d6efd;
+    }
+  </style>
 </head>
 <body>
+
   <header>
     <h1>Nitish Bhardwaj</h1>
-    <p>Senior Software Developer</p>
+    <p>Full Stack Developer | Angular | Node.js | MongoDB | Ionic</p>
+    <p>📍 Samastipur, Patna, Bihar | 📧 Nitishbhardwaj1111@gmail.com | 📞 +91-7973749455</p>
   </header>
+
+  <nav>
+    <a href="#about">About</a>
+    <a href="#experience">Experience</a>
+    <a href="#projects">Projects</a>
+    <a href="#skills">Skills</a>
+    <a href="#education">Education</a>
+    <a href="#contact">Contact</a>
+  </nav>
 
   <section id="about">
     <h2>About Me</h2>
-    <p>I am a Senior Software Developer with experience in building scalable web applications using Angular and Agile methodologies.</p>
+    <div class="card">
+      <p>Experienced and results-oriented Full Stack Developer with 7+ years of expertise in building scalable web and mobile applications using Angular, Node.js, MongoDB, and Ionic. Proven ability to lead end-to-end software development in agile environments with strong problem-solving and leadership skills.</p>
+    </div>
+  </section>
+
+  <section id="experience">
+    <h2>Work Experience</h2>
+    <div class="card">
+      <h3>Senior Software Developer — Oasys Cybernetics Pvt Ltd</h3>
+      <p><em>Apr 2021 – Present | Remote</em></p>
+      <ul>
+        <li>Led full-stack development lifecycle from design to deployment.</li>
+        <li>Architected and optimized scalable systems for high availability.</li>
+        <li>Mentored junior developers and enforced coding best practices.</li>
+        <li>Implemented CI/CD pipelines and modernized legacy systems.</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <h3>Software Developer — 75way Technologies Pvt Ltd</h3>
+      <p><em>Jan 2018 – Nov 2020 | Panchkula, Haryana</em></p>
+      <ul>
+        <li>Collaborated on all stages of the SDLC for multiple applications.</li>
+        <li>Performed regression and system-level testing before release.</li>
+        <li>Streamlined deployment with CI tools and Git workflows.</li>
+      </ul>
+    </div>
   </section>
 
   <section id="projects">
     <h2>Projects</h2>
-    <div class="project">
-      <h3>Project One</h3>
-      <p>Brief description of your project. Replace this with your actual work.</p>
+    <div class="card">
+      <h3>Health Management Information System</h3>
+      <p>Digitized government hospital operations, improving efficiency and enabling real-time collaboration across departments.</p>
     </div>
-    <div class="project">
-      <h3>Project Two</h3>
-      <p>Brief description of your project. Replace this with your actual work.</p>
+
+    <div class="card">
+      <h3>Confirmed</h3>
+      <p>Online meeting scheduling platform integrated with Google/Outlook APIs, reducing confirmation time by 80%.</p>
     </div>
-    <div class="project">
-      <h3>Project Three</h3>
-      <p>Brief description of your project. Replace this with your actual work.</p>
+
+    <div class="card">
+      <h3>CarServ</h3>
+      <p>Developed an automotive repair management system, reducing repair order time by 30%.</p>
     </div>
   </section>
 
   <section id="skills">
-    <h2>Skills</h2>
-    <ul>
-      <li>Angular</li>
-      <li>Agile Methodologies</li>
-    </ul>
+    <h2>Tech Skills</h2>
+    <div class="card">
+      <p><strong>Languages:</strong> JavaScript, Node.js</p>
+      <p><strong>Frameworks:</strong> Angular (JS & 2+), Ionic, Angular Material, Kendo UI, React</p>
+      <p><strong>Database:</strong> MongoDB, MySQL</p>
+      <p><strong>Version Control:</strong> Git, GitHub, GitLab, Bitbucket</p>
+      <p><strong>Cloud & DevOps:</strong> CI/CD, Jira, Nginx, Postman</p>
+      <p><strong>Methodologies:</strong> Agile (Scrum, Kanban), RESTful APIs</p>
+    </div>
+  </section>
+
+  <section id="education">
+    <h2>Education</h2>
+    <div class="card">
+      <p><strong>MCA:</strong> Sahibzada Ajit Singh Institute of IT (2016–2018)</p>
+      <p><strong>BCA:</strong> L.N. Mishra College of Business Management (2013–2016)</p>
+      <p><strong>SSC:</strong> Dr. Shaligram Misra College (2011–2013)</p>
+      <p><strong>HSC:</strong> High School Kalyanpur (2010–2011)</p>
+    </div>
   </section>
 
   <section id="contact">
     <h2>Contact</h2>
-    <p>Phone: 7973749455</p>
+    <div class="card">
+      <p>📧 Email: <a href="mailto:Nitishbhardwaj1111@gmail.com">Nitishbhardwaj1111@gmail.com</a></p>
+      <p>🔗 LinkedIn: <a href="https://www.linkedin.com/in/nitishbhardwaj1111/" target="_blank">linkedin.com/in/nitishbhardwaj1111</a></p>
+      <p>📍 Location: Samastipur, Patna, Bihar</p>
+    </div>
   </section>
 
   <footer>
-    <p>&copy; 2025 Nitish Bhardwaj</p>
+    <p>© 2025 Nitish Bhardwaj | Portfolio</p>
+    <div class="social-links">
+      <a href="https://www.linkedin.com/in/nitishbhardwaj1111/" target="_blank">LinkedIn</a>
+      <a href="mailto:Nitishbhardwaj1111@gmail.com">Email</a>
+    </div>
   </footer>
+
 </body>
 </html>
