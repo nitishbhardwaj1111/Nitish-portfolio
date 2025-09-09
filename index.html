@@ -15,26 +15,37 @@
       --chip: #1f232b;
       --border: #1d2026;
     }
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    html, body { height: 100%; }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html,
+    body {
+      height: 100%;
+    }
+
     body {
       font: 15px/1.7 "Inter", system-ui, sans-serif;
       color: var(--text);
-      background: radial-gradient(
-        1200px 600px at 20% -10%,
-        #1a2031 0%,
-        #0e0f12 60%
-      ) fixed;
+      background: radial-gradient(1200px 600px at 20% -10%, #1a2031 0%, #0e0f12 60%) fixed;
     }
-    a { color: inherit; text-decoration: none; }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
     .banner {
       position: relative;
       height: 260px;
       background:
-        linear-gradient(120deg, rgba(55,125,255,0.55), rgba(138,92,246,0.55)),
-        url("https://images.unsplash.com/photo-1498050108023-c5249f4df085?q=80&w=1600&auto=format&fit=crop")
-          center/cover no-repeat;
+        linear-gradient(120deg, rgba(55, 125, 255, 0.55), rgba(138, 92, 246, 0.55)),
+        url("https://images.unsplash.com/photo-1498050108023-c5249f4df085?q=80&w=1600&auto=format&fit=crop") center/cover no-repeat;
     }
+
     .avatar {
       position: absolute;
       left: 50%;
@@ -46,14 +57,31 @@
       border: 6px solid var(--bg);
       box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
     }
-    .wrap { max-width: 1160px; margin: 0 auto; padding: 0 24px; }
+
+    .wrap {
+      max-width: 1160px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
     .header {
       padding-top: 100px;
       padding-bottom: 28px;
       text-align: center;
     }
-    .name { font-size: 32px; font-weight: 700; margin-bottom: 6px; }
-    .role { font-size: 16px; color: var(--muted); margin-top: 6px; }
+
+    .name {
+      font-size: 32px;
+      font-weight: 700;
+      margin-bottom: 6px;
+    }
+
+    .role {
+      font-size: 16px;
+      color: var(--muted);
+      margin-top: 6px;
+    }
+
     .tags {
       display: flex;
       gap: 10px;
@@ -61,6 +89,7 @@
       flex-wrap: wrap;
       margin: 16px 0 20px;
     }
+
     .chip {
       background: var(--chip);
       border: 1px solid var(--border);
@@ -69,12 +98,14 @@
       color: #dfe7ff;
       font-size: 14px;
     }
+
     .cta {
       display: flex;
       gap: 12px;
       justify-content: center;
       margin-top: 14px;
     }
+
     .btn {
       border: 1px solid var(--border);
       background: linear-gradient(180deg, #1b1e25 0%, #13161b 100%);
@@ -83,12 +114,18 @@
       font-weight: 600;
       transition: transform 0.15s ease, border-color 0.15s ease;
     }
-    .btn:hover { transform: translateY(-1px); border-color: #2a2f3a; }
+
+    .btn:hover {
+      transform: translateY(-1px);
+      border-color: #2a2f3a;
+    }
+
     .btn.primary {
       background: linear-gradient(120deg, var(--brand), var(--brand2));
       border: none;
       color: #fff;
     }
+
     .stats {
       margin: 24px auto 10px;
       display: flex;
@@ -96,6 +133,7 @@
       justify-content: center;
       flex-wrap: wrap;
     }
+
     .stat {
       background: var(--card);
       border: 1px solid var(--border);
@@ -106,8 +144,18 @@
       flex-direction: column;
       align-items: center;
     }
-    .stat .num { font-size: 20px; font-weight: 800; }
-    .stat .label { font-size: 13px; color: var(--muted); margin-top: 4px; }
+
+    .stat .num {
+      font-size: 20px;
+      font-weight: 800;
+    }
+
+    .stat .label {
+      font-size: 13px;
+      color: var(--muted);
+      margin-top: 4px;
+    }
+
     .tabs {
       margin: 36px auto 0;
       display: flex;
@@ -117,6 +165,7 @@
       border-bottom: 1px solid var(--border);
       padding-bottom: 6px;
     }
+
     .tab {
       padding: 14px 12px;
       font-size: 15px;
@@ -124,14 +173,21 @@
       color: var(--muted);
       position: relative;
     }
-    .tab.active { color: #fff; }
+
+    .tab.active {
+      color: #fff;
+    }
+
     .tab.active::after {
       content: "";
       position: absolute;
-      left: 0; right: 0; bottom: -1px;
+      left: 0;
+      right: 0;
+      bottom: -1px;
       height: 2px;
       background: linear-gradient(120deg, var(--brand), var(--brand2));
     }
+
     .filters {
       display: flex;
       gap: 12px;
@@ -140,7 +196,14 @@
       align-items: center;
       padding: 22px 0 12px;
     }
-    .left, .right { display: flex; gap: 10px; flex-wrap: wrap; }
+
+    .left,
+    .right {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
     .pill {
       background: #111419;
       border: 1px solid var(--border);
@@ -151,16 +214,19 @@
       cursor: pointer;
       transition: background 0.2s, border-color 0.2s;
     }
+
     .pill.active {
       background: linear-gradient(120deg, #1b2335, #161d2a);
       border-color: #2b3242;
     }
+
     .grid {
       display: grid;
       gap: 20px;
       grid-template-columns: repeat(12, 1fr);
       margin-top: 20px;
     }
+
     .card {
       grid-column: span 4;
       background: var(--card);
@@ -169,16 +235,19 @@
       overflow: hidden;
       transition: transform 0.18s ease, box-shadow 0.18s ease;
     }
+
     .card:hover {
       transform: translateY(-4px);
       box-shadow: 0 15px 40px rgba(0, 0, 0, 0.35);
     }
+
     .thumb {
       position: relative;
       aspect-ratio: 16/11;
       background: #0f0f0f;
       overflow: hidden;
     }
+
     .thumb img {
       width: 100%;
       height: 100%;
@@ -187,7 +256,11 @@
       transform: scale(1.02);
       transition: transform 0.25s ease;
     }
-    .card:hover .thumb img { transform: scale(1.06); }
+
+    .card:hover .thumb img {
+      transform: scale(1.06);
+    }
+
     .badge {
       position: absolute;
       top: 10px;
@@ -199,6 +272,7 @@
       font-size: 12px;
       backdrop-filter: blur(6px);
     }
+
     .meta {
       position: absolute;
       right: 10px;
@@ -211,31 +285,47 @@
       display: flex;
       gap: 10px;
     }
-    .body { padding: 18px 20px; }
+
+    .body {
+      padding: 18px 20px;
+    }
+
     .title {
       font-size: 16px;
       font-weight: 700;
       margin-bottom: 6px;
     }
+
     .subtitle {
       color: var(--muted);
       font-size: 14px;
       line-height: 1.6;
     }
-    #info .card { padding: 24px; margin-top: 16px; }
-    #info .title { font-size: 18px; margin-bottom: 10px; }
-    #info .subtitle {
-      font-size: 15px;
-      color: #cfd3dd;
-      line-height: 1.7;
+
+    #info .card,
+    #techstack .card {
+      padding: 24px;
+      margin-top: 16px;
+      grid-column: span 6;
     }
-    #techstack .card { padding: 24px; margin-top: 16px; }
-    #techstack .title { font-size: 18px; margin-bottom: 10px; }
+
+    #info .title,
+    #techstack .title {
+      font-size: 18px;
+      margin-bottom: 10px;
+    }
+
+    #info .subtitle,
     #techstack .subtitle {
       font-size: 15px;
       color: #cfd3dd;
       line-height: 1.7;
     }
+
+    #techstack .grid {
+      gap: 20px;
+    }
+
     footer {
       margin-top: 40px;
       text-align: center;
@@ -243,17 +333,52 @@
       font-size: 14px;
       padding: 40px 20px 60px;
     }
-    footer a { margin: 0 8px; }
-    footer a:hover { color: #fff; }
-    @media (max-width: 1100px) {
-      .card { grid-column: span 6; }
+
+    footer a {
+      margin: 0 8px;
     }
+
+    footer a:hover {
+      color: #fff;
+    }
+
+    @media (max-width: 1100px) {
+      .card {
+        grid-column: span 6;
+      }
+    }
+
     @media (max-width: 720px) {
-      .banner { height: 220px; }
-      .avatar { bottom: -52px; width: 100px; height: 100px; }
-      .header { padding-top: 90px; }
-      .card { grid-column: span 12; }
-      .filters { gap: 12px; }
+      .banner {
+        height: 220px;
+      }
+
+      .avatar {
+        bottom: -52px;
+        width: 100px;
+        height: 100px;
+      }
+
+      .header {
+        padding-top: 90px;
+      }
+
+      .card {
+        grid-column: span 12;
+      }
+
+      #techstack .grid {
+        display: block;
+      }
+
+      #techstack .card {
+        margin-bottom: 20px;
+        grid-column: span 12;
+      }
+
+      .filters {
+        gap: 12px;
+      }
     }
   </style>
 </head>
@@ -263,147 +388,146 @@
 
   <section class="wrap header">
     <div class="name">Nitish Bhardwaj</div>
-    <div class="role">Full Stack Developer — Angular • Node.js • MongoDB • Ionic</div>
+    <div class="role">Senior Software Developer — Angular • Node.js • MongoDB • Ionic</div>
     <div class="tags">
       <span class="chip">Available for Freelance & Full-time</span>
       <span class="chip">India • Samastipur, Patna</span>
       <span class="chip"><a href="mailto:Nitishbhardwaj1111@gmail.com">Nitishbhardwaj1111@gmail.com</a></span>
     </div>
     <div class="cta">
-      <a class="btn" href="https://github.com/nitishbhardwaj1111" target="_blank" rel="noreferrer">Follow</a>
-      <a class="btn" href="mailto:Nitishbhardwaj1111@gmail.com">Message</a>
-      <a class="btn primary" href="mailto:Nitishbhardwaj1111@gmail.com?subject=Hire%20Nitish">
-        Hire Nitish
-      </a>
-    </div>
-
-    <div class="stats">
-      <div class="stat"><div class="num">12.9k</div><div class="label">Project Views</div></div>
-      <div class="stat"><div class="num">128</div><div class="label">Appreciations</div></div>
-      <div class="stat"><div class="num">340</div><div class="label">Followers</div></div>
-      <div class="stat"><div class="num">210</div><div class="label">Following</div></div>
-    </div>
-
-    <nav class="tabs">
-      <a class="tab active" href="#work">Work</a>
-      <a class="tab" href="#info">Info</a>
-      <a class="tab" href="#techstack">Tech Stack</a>
-      <a class="tab" href="#techstack">Education</a>
-    </nav>
-
-    <div class="filters">
-      <div class="left">
-        <button class="pill active" data-filter="all">All</button>
-        <button class="pill" data-filter="angular">Angular</button>
-        <button class="pill" data-filter="node">Node.js</button>
-        <button class="pill" data-filter="ionic">Ionic</button>
-        <button class="pill" data-filter="react">React</button>
-      </div>
-      <div class="right">
-        <button class="pill" data-sort="recent">Sort: Recent</button>
-        <button class="pill" data-sort="popular">Sort: Popular</button>
-      </div>
+      <a class="btn" href="https://github.com/nitishbhardwaj1111" target="_blank" rel="noreferrer">GitHub</a>
+      <a class="btn" href="https://www.linkedin.com/in/nitishbhardwaj1111/" target="_blank" rel="noreferrer">LinkedIn</a>
+      <a class="btn primary" href="mailto:Nitishbhardwaj1111@gmail.com?subject=Hire%20Nitish">Hire Me</a>
     </div>
   </section>
 
+  <!-- Work Section -->
   <section id="work" class="wrap">
     <div class="grid" id="grid">
-      <article class="card" data-tags="angular node" data-popularity="2400" data-date="2025-01-01">
+      <!-- Project 1 -->
+      <a href="https://tnhmislims.org/" target="_blank" class="card" data-tags="angular node" data-popularity="2400" data-date="2025-01-01">
         <div class="thumb">
-          <img src="https://images.unsplash.com/photo-1529070538774-1843cb3265df?q=80&w=1600&auto=format&fit=crop" alt="Healthcare project"/>
+          <img src="https://medcitynews.com/wp-content/uploads/sites/7/2021/12/GettyImages-1300745916-1-600x337.jpg" alt="Healthcare project"/>
           <span class="badge">Angular • Security</span>
-          <span class="meta"><span>2.4k views</span><span>46 ♥</span></span>
+          <span class="meta"><span>305 views</span><span>46 ♥</span></span>
         </div>
         <div class="body">
           <div class="title">Health Management Information System</div>
-          <div class="subtitle">
-            Digitized hospital operations, implemented encryption via Angular interceptors, improved operational efficiency & enabled real-time collaboration.
-          </div>
+          <div class="subtitle">Digitized hospital operations, implemented encryption via Angular interceptors, improved efficiency & enabled real-time collaboration.</div>
         </div>
-      </article>
+      </a>
 
-      <article class="card" data-tags="react node">
+      <!-- Project 2 -->
+      <a href="https://pujakaromi.com/#/home" target="_blank" class="card" data-tags="angular node" data-popularity="1800" data-date="2024-12-01">
+        <div class="thumb">
+          <img src="https://pujakaromi.com/banner.jpg" alt="Puja Karomi" />
+          <span class="badge">Angular • Spiritual</span>
+          <span class="meta"><span>246 views</span><span>25 ♥</span></span>
+        </div>
+        <div class="body">
+          <div class="title">PujaKaromi</div>
+          <div class="subtitle">Online puja booking platform providing spiritual services with modern UI and seamless payment integration.</div>
+        </div>
+      </a>
+
+      <!-- Project 3 -->
+      <a href="https://auditions.com/" target="_blank" class="card" data-tags="react node" data-popularity="2200" data-date="2024-11-01">
+        <div class="thumb">
+          <img src="https://auditions.com/images/home/right-banner-image.jpg" alt="Auditions Platform" />
+          <span class="badge">Casting • Platform</span>
+          <span class="meta"><span>187 views</span><span>40 ♥</span></span>
+        </div>
+        <div class="body">
+          <div class="title">Auditions.com</div>
+          <div class="subtitle">A casting and auditions platform enabling seamless talent discovery and management for the entertainment industry.</div>
+        </div>
+      </a>
+
+      <!-- Project 4 -->
+      <a href="https://explore.confirmedapp.com/" target="_blank" class="card" data-tags="react node" data-popularity="1900" data-date="2024-10-15">
         <div class="thumb">
           <img src="https://images.unsplash.com/photo-1552581234-26160f608093?q=80&w=1600&auto=format&fit=crop" alt="Confirmed – Scheduling platform" />
           <span class="badge">Scheduling • Calendars</span>
-          <span class="meta"><span>1.9k views</span><span>35 ♥</span></span>
+          <span class="meta"><span>244 views</span><span>35 ♥</span></span>
         </div>
         <div class="body">
           <div class="title">Confirmed – Meeting Scheduler</div>
           <div class="subtitle">An online platform integrated with Google and Outlook APIs, reducing scheduling time by 80% and improving customer satisfaction by 20%.</div>
         </div>
-      </article>
+      </a>
 
-      <article class="card" data-tags="node angular">
+      <!-- Project 5 -->
+      <a href="https://thethor.io/" target="_blank" class="card" data-tags="node angular" data-popularity="1400" data-date="2024-09-20">
         <div class="thumb">
-          <img src="https://images.unsplash.com/photo-1529070538774-1843cb3265df?q=80&w=1600&auto=format&fit=crop" alt="Fixturewire / THOR – Cargo tracking" />
+          <img src="https://media.istockphoto.com/id/2193635897/photo/smart-warehouse-inventory-management-system-concept.jpg?s=612x612&w=0&k=20&c=6411AaVqPwfEyIuzlhmaft48YV-JS_PhtaBq-FPiih4=" alt="Fixturewire / THOR – Cargo tracking" />
           <span class="badge">Tracking • 99.9% uptime</span>
-          <span class="meta"><span>1.4k views</span><span>20 ♥</span></span>
+          <span class="meta"><span>106 views</span><span>20 ♥</span></span>
         </div>
         <div class="body">
           <div class="title">Fixturewire / THOR</div>
           <div class="subtitle">Developed a multi-platform solution for cargo and freight tracking, automated 40% of manual input, and ensured 99.9% uptime.</div>
         </div>
-      </article>
+      </a>
 
-      <article class="card" data-tags="angular node">
+      <!-- Project 6 -->
+      <a href="#" target="_blank" class="card" data-tags="angular node" data-popularity="1200" data-date="2024-09-01">
         <div class="thumb">
-          <img src="https://images.unsplash.com/photo-1517673400267-0251440c45dc?q=80&w=1600&auto=format&fit=crop" alt="CarServ – Auto repair OS" />
+          <img src="http://media.istockphoto.com/id/1260156485/vector/mechanic-performing-a-car-inspection-using-a-digital-app.jpg?s=612x612&w=0&k=20&c=LHPNBzcE7xKI5L_yOgBNr000vjXV3n2Lzli3795dcHE=" alt="CarServ – Auto repair OS" />
           <span class="badge">B2B SaaS</span>
-          <span class="meta"><span>1.2k views</span><span>28 ♥</span></span>
+          <span class="meta"><span>90 views</span><span>28 ♥</span></span>
         </div>
         <div class="body">
           <div class="title">CarServ – Auto Repair OS</div>
           <div class="subtitle">Built software for automotive repair shops, redesigned platform UX (+20%), and reduced repair order processing time by 30%.</div>
         </div>
-      </article>
+      </a>
 
-      <article class="card" data-tags="ionic node angular">
+      <!-- Project 7 -->
+      <a href="#" target="_blank" class="card" data-tags="ionic node angular" data-popularity="1800" data-date="2024-08-10">
         <div class="thumb">
           <img src="https://images.unsplash.com/photo-1511690656952-34342bb7c2f2?q=80&w=1600&auto=format&fit=crop" alt="Farms Healthy – Organic e-commerce" />
           <span class="badge">E-commerce • Mobile/Web</span>
-          <span class="meta"><span>1.8k views</span><span>31 ♥</span></span>
+          <span class="meta"><span>49 views</span><span>31 ♥</span></span>
         </div>
         <div class="body">
           <div class="title">Farms Healthy</div>
           <div class="subtitle">Developed a web and mobile platform for organic farm products, integrated secure payments, and improved backend response time by 20%.</div>
         </div>
-      </article>
-      <!-- Other project cards... -->
+      </a>
     </div>
   </section>
 
+  <!-- Info Section -->
   <section id="info" class="wrap">
     <div class="card">
       <div class="title">About</div>
       <div class="subtitle">
-        Experienced and results-oriented Full Stack Developer with 7+ years of expertise in building scalable web and mobile applications using Angular, Node.js, MongoDB, and Ionic. Proven ability to lead end-to-end software development in agile environments with strong problem-solving, leadership, and mentoring skills. Adept at CI/CD, testing, and system optimization to deliver high-quality business solutions.
+        Experienced and results-oriented Full Stack Developer with 7+ years of expertise in building scalable web and mobile applications using Angular, Node.js, MongoDB, and Ionic.
       </div>
     </div>
   </section>
+
+  <!-- Tech Stack & Education -->
   <section id="techstack" class="wrap">
     <div class="grid" style="margin-top:20px">
-      <div class="card" style="grid-column:span 6">
+      <div class="card">
         <div class="title">Tech Stack</div>
         <div class="subtitle">
-          <ul style="padding-left:18px; margin:0">
+          <ul>
             <li><strong>Languages:</strong> JavaScript, Node.js</li>
-            <li><strong>Frameworks & Tools:</strong> AngularJS, Angular 2+, Ionic, React, Angular Material, Kendo UI</li>
+            <li><strong>Frameworks & Tools:</strong> Angular, Ionic, React, Angular Material, Kendo UI</li>
             <li><strong>Databases:</strong> MongoDB, MySQL</li>
             <li><strong>Version Control:</strong> Git, GitHub, GitLab, Bitbucket</li>
             <li><strong>Cloud & DevOps:</strong> CI/CD, Nginx, Postman, Jira</li>
-            <li><strong>Methodologies:</strong> Agile (Scrum, Kanban), RESTful API Design</li>
           </ul>
         </div>
       </div>
-      <div class="card" style="grid-column:span 6">
+      <div class="card">
         <div class="title">Education</div>
         <div class="subtitle">
-          <ul style="padding-left:18px; margin:0">
+          <ul>
             <li><strong>MCA:</strong> Sahibzada Ajit Singh Institute of IT (2016–2018)</li>
             <li><strong>BCA:</strong> L.N. Mishra College of Business Management (2013–2016)</li>
-            <li><strong>SSC:</strong> Dr. Shaligram Misra College (2011–2013)</li>
-            <li><strong>HSC:</strong> High School Kalyanpur (2010–2011)</li>
           </ul>
         </div>
       </div>
@@ -413,7 +537,8 @@
   <footer>
     <p>
       © 2025 Nitish Bhardwaj •
-      <a href="https://github.com/nitishbhardwaj1111" target="_blank" rel="noreferrer">GitHub</a> •
+      <a href="https://github.com/nitishbhardwaj1111" target="_blank">GitHub</a> •
+      <a href="https://www.linkedin.com/in/nitishbhardwaj1111/" target="_blank">LinkedIn</a> •
       <a href="mailto:Nitishbhardwaj1111@gmail.com">Email</a>
     </p>
   </footer>
@@ -421,9 +546,9 @@
   <script>
     const filterBtns = document.querySelectorAll("[data-filter]");
     const cards = document.querySelectorAll(".card");
-    filterBtns.forEach((btn) => {
+    filterBtns.forEach(btn => {
       btn.addEventListener("click", () => {
-        filterBtns.forEach(x => x.classList.remove("active"));
+        filterBtns.forEach(b => b.classList.remove("active"));
         btn.classList.add("active");
         const filter = btn.dataset.filter;
         cards.forEach(c => {
@@ -437,12 +562,11 @@
       const grid = document.getElementById("grid");
       const items = Array.from(grid.children);
       const sortType = btn.dataset.sort;
-      sortBtns.forEach(x => x.classList.remove("active"));
+      sortBtns.forEach(b => b.classList.remove("active"));
       btn.classList.add("active");
-      items.sort((a, b) => sortType === "popular"
+      items.sort((a,b) => sortType === "popular"
         ? b.dataset.popularity - a.dataset.popularity
-        : new Date(b.dataset.date) - new Date(a.dataset.date)
-      );
+        : new Date(b.dataset.date) - new Date(a.dataset.date));
       items.forEach(i => grid.appendChild(i));
     }));
   </script>
