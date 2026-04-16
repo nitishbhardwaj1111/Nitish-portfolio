@@ -7,16 +7,72 @@
   <title>Nitish Bhardwaj | Portfolio</title>
   <!-- SEO Meta Tags -->
   <meta name="description"
-    content="Portfolio of Nitish Bhardwaj, a Full Stack Developer specializing in Angular, Node.js, MongoDB, and UI-focused development." />
+    content="Nitish Bhardwaj — Senior Angular Developer & Frontend Lead with 8+ years building scalable web apps using Angular 18, TypeScript, Node.js. View projects and experience." />
   <meta name="keywords"
-    content="Nitish Bhardwaj, Full Stack Developer, Angular, Node.js, MongoDB, Ionic, Portfolio" />
+    content="Nitish Bhardwaj, Senior Angular Developer, Frontend Lead, Angular 18, TypeScript, RxJS, Node.js, MongoDB, Portfolio" />
   <meta name="author" content="Nitish Bhardwaj" />
-  <meta property="og:title" content="Nitish Bhardwaj | Full Stack Developer Portfolio" />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://nitishbhardwaj1111.github.io/Nitish-portfolio/" />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Nitish Bhardwaj | Senior Angular Developer & Frontend Lead" />
   <meta property="og:description"
-    content="Explore Nitish Bhardwaj's projects and experience in Angular, Node.js, MongoDB, Ionic, React, and UI development." />
+    content="Senior Angular Developer & Frontend Lead with 8+ years crafting scalable web & mobile apps. Explore projects in healthcare, logistics, and entertainment." />
   <meta property="og:type" content="website" />
-  <meta property="og:image" content="https://avatars.githubusercontent.com/u/43879303?v=4" />
   <meta property="og:url" content="https://nitishbhardwaj1111.github.io/Nitish-portfolio/" />
+  <meta property="og:image" content="https://avatars.githubusercontent.com/u/43879303?v=4" />
+  <meta property="og:image:width" content="460" />
+  <meta property="og:image:height" content="460" />
+  <meta property="og:image:type" content="image/jpeg" />
+  <meta property="og:site_name" content="Nitish Bhardwaj Portfolio" />
+  <meta property="og:locale" content="en_IN" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Nitish Bhardwaj | Senior Angular Developer & Frontend Lead" />
+  <meta name="twitter:description"
+    content="Senior Angular Developer with 8+ years building scalable apps using Angular 18, TypeScript, Node.js." />
+  <meta name="twitter:image" content="https://avatars.githubusercontent.com/u/43879303?v=4" />
+
+  <!-- Structured Data (JSON-LD) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Nitish Bhardwaj",
+    "url": "https://nitishbhardwaj1111.github.io/Nitish-portfolio/",
+    "image": "https://avatars.githubusercontent.com/u/43879303?v=4",
+    "jobTitle": "Senior Angular Developer & Frontend Lead",
+    "description": "Senior Angular Developer & Frontend Lead with 8+ years of experience building scalable web and mobile applications.",
+    "email": "mailto:Nitishbhardwaj1111@gmail.com",
+    "telephone": "+91-7973749455",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Chennai",
+      "addressCountry": "IN"
+    },
+    "sameAs": [
+      "https://github.com/nitishbhardwaj1111",
+      "https://www.linkedin.com/in/nitishbhardwaj1111/"
+    ],
+    "knowsAbout": ["Angular", "TypeScript", "Node.js", "RxJS", "MongoDB", "Frontend Development"],
+    "worksFor": {
+      "@type": "Organization",
+      "name": "Oasys Cybernetics Pvt Ltd"
+    },
+    "alumniOf": [
+      {
+        "@type": "CollegeOrUniversity",
+        "name": "Sahibzada Ajit Singh Institute of IT"
+      },
+      {
+        "@type": "CollegeOrUniversity",
+        "name": "L.N. Mishra College of Business Management"
+      }
+    ]
+  }
+  </script>
+
   <meta name="google-site-verification" content="eDeK9VNR5GDrbR2hPipQAA9DIadkx4hqqtHj_28mF6A" />
   <!-- Favicon -->
   <link rel="icon" href="https://avatars.githubusercontent.com/u/43879303?v=4" type="image/png" />
@@ -25,15 +81,24 @@
 
 <body>
 
+  <!-- Scroll Progress -->
+  <div class="scroll-progress" id="scrollProgress"></div>
+
   <!-- Navbar -->
   <nav class="navbar" id="navbar">
-    <div class="nav-logo">N<span>.</span></div>
-    <ul class="nav-links">
-      <li><a href="#about">About</a></li>
-      <li><a href="#projects">Projects</a></li>
-      <li><a href="#contact">Contact</a></li>
+    <div class="nav-logo">Nitish<span>.</span></div>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#about" class="nav-link">About</a></li>
+      <li><a href="#experience" class="nav-link">Experience</a></li>
+      <li><a href="#projects" class="nav-link">Projects</a></li>
+      <li><a href="#contact" class="nav-link">Contact</a></li>
       <li><a class="btn btn-primary" href="./Nitish_Bhardwaj.pdf" download>Resume</a></li>
     </ul>
+    <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
   </nav>
 
   <!-- Hero -->
@@ -48,8 +113,8 @@
         for the <span class="gradient">web.</span>
       </h1>
       <p class="hero-subtitle">
-        Senior Software Developer with 7+ years crafting scalable web & mobile apps.
-        Focused on Angular, Node.js, and beautiful user interfaces.
+        Senior Angular Developer & Frontend Lead with 8+ years crafting scalable
+        web & mobile apps. Specializing in Angular 18, TypeScript, and pixel-perfect interfaces.
       </p>
       <div class="hero-cta">
         <a class="btn btn-primary" href="mailto:Nitishbhardwaj1111@gmail.com?subject=Hire%20Nitish">
@@ -89,47 +154,50 @@
         <div class="bento-card bento-wide about-card reveal">
           <img class="avatar" src="https://avatars.githubusercontent.com/u/43879303?v=4" alt="Nitish Bhardwaj" />
           <h3>Nitish Bhardwaj</h3>
+          <p class="about-role">Senior Angular Developer &bull; Frontend Lead</p>
           <p>
-            Results-driven Full Stack Developer with 80% focus on UI development.
-            I transform complex requirements into intuitive, visually engaging digital products
-            across healthcare, e-commerce, logistics, and entertainment.
+            Results-driven developer leading frontend teams and building Angular applications
+            used by 4,000+ daily users. I transform complex requirements into intuitive,
+            high-performance digital products across healthcare, logistics, and entertainment.
           </p>
         </div>
 
         <!-- Years Experience -->
         <div class="bento-card stats-card reveal">
-          <div class="stat-number">7+</div>
+          <div class="stat-number">8+</div>
           <div class="stat-label">Years Experience</div>
         </div>
 
-        <!-- Projects Delivered -->
+        <!-- Daily Users -->
         <div class="bento-card stats-card reveal">
-          <div class="stat-number">15+</div>
-          <div class="stat-label">Projects Delivered</div>
+          <div class="stat-number">4K+</div>
+          <div class="stat-label">Daily Users Served</div>
         </div>
 
         <!-- Tech Stack -->
         <div class="bento-card bento-wide tech-card reveal">
           <h3>Tech Stack</h3>
           <div class="tech-tags">
-            <span class="tech-tag">Angular</span>
+            <span class="tech-tag">Angular 18</span>
             <span class="tech-tag">TypeScript</span>
+            <span class="tech-tag">RxJS</span>
+            <span class="tech-tag">NgRx</span>
+            <span class="tech-tag">Angular Material</span>
+            <span class="tech-tag">Kendo UI</span>
             <span class="tech-tag">Node.js</span>
             <span class="tech-tag">MongoDB</span>
             <span class="tech-tag">Ionic</span>
-            <span class="tech-tag">RxJS</span>
-            <span class="tech-tag">NgRx</span>
             <span class="tech-tag">SCSS</span>
             <span class="tech-tag">Tailwind</span>
-            <span class="tech-tag">Firebase</span>
             <span class="tech-tag">REST APIs</span>
             <span class="tech-tag">GraphQL</span>
             <span class="tech-tag">MySQL</span>
-            <span class="tech-tag">Redis</span>
+            <span class="tech-tag">Firebase</span>
             <span class="tech-tag">AWS</span>
+            <span class="tech-tag">Azure</span>
             <span class="tech-tag">Docker</span>
-            <span class="tech-tag">Git</span>
             <span class="tech-tag">CI/CD</span>
+            <span class="tech-tag">Git</span>
           </div>
         </div>
 
@@ -194,6 +262,75 @@
     </div>
   </section>
 
+  <!-- Experience -->
+  <section id="experience" class="experience-section">
+    <div class="container">
+      <p class="section-label reveal">Career</p>
+      <h2 class="section-title reveal">Work Experience</h2>
+
+      <div class="timeline">
+        <!-- Oasys -->
+        <div class="timeline-item reveal">
+          <div class="timeline-dot"></div>
+          <div class="timeline-content">
+            <div class="timeline-header">
+              <div>
+                <h3>Senior Software Developer</h3>
+                <p class="timeline-company">Oasys Cybernetics Pvt Ltd &bull; Chennai, India</p>
+              </div>
+              <span class="timeline-date">Apr 2021 &ndash; Present</span>
+            </div>
+            <ul class="timeline-highlights">
+              <li>Leading frontend development using Angular 18, TypeScript, and RxJS across the full SDLC</li>
+              <li>Designed and developed 29+ Angular modules used by 4,000+ daily users across hospital operations</li>
+              <li>Implemented lazy loading and code optimization, reducing initial load time by up to 90%</li>
+              <li>Mentored junior developers and enforced coding standards and best practices</li>
+              <li>Implemented AI-driven forecasting for hospital medicine stock using historical consumption data</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Freelancer -->
+        <div class="timeline-item reveal">
+          <div class="timeline-dot"></div>
+          <div class="timeline-content">
+            <div class="timeline-header">
+              <div>
+                <h3>Full Stack Developer</h3>
+                <p class="timeline-company">Freelancer &bull; Panchkula, India</p>
+              </div>
+              <span class="timeline-date">Nov 2020 &ndash; Mar 2021</span>
+            </div>
+            <ul class="timeline-highlights">
+              <li>Designed, built, and maintained secure, scalable internal applications for clients</li>
+              <li>Provided end-to-end development support from requirements to post-release monitoring</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- 75way -->
+        <div class="timeline-item reveal">
+          <div class="timeline-dot"></div>
+          <div class="timeline-content">
+            <div class="timeline-header">
+              <div>
+                <h3>Software Developer</h3>
+                <p class="timeline-company">75way Technologies Pvt Ltd &bull; Panchkula, India</p>
+              </div>
+              <span class="timeline-date">Jan 2018 &ndash; Nov 2020</span>
+            </div>
+            <ul class="timeline-highlights">
+              <li>Developed scalable web applications using Angular, React, and Node.js for multiple clients</li>
+              <li>Built and integrated RESTful APIs using Node.js and Express</li>
+              <li>Optimized performance and refactored legacy codebases to improve load speed and maintainability</li>
+              <li>Supported deployments on AWS, Azure, and IIS with CI/CD pipelines</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- Projects -->
   <section id="projects" class="projects-section">
     <div class="container">
@@ -204,7 +341,7 @@
         <!-- Featured: HMIS -->
         <a href="https://tnhmislims.org/" target="_blank" rel="noreferrer" class="project-card featured reveal">
           <div class="project-thumb">
-            <img src="https://medcitynews.com/wp-content/uploads/sites/7/2021/12/GettyImages-1300745916-1-600x337.jpg"
+            <img src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=1600&auto=format&fit=crop&q=80"
               alt="Health Management Information System" loading="lazy" />
             <div class="project-overlay"></div>
             <span class="project-tag">Featured</span>
@@ -224,7 +361,8 @@
         <!-- PujaKaromi -->
         <a href="https://pujakaromi.com/#/home" target="_blank" rel="noreferrer" class="project-card reveal">
           <div class="project-thumb">
-            <img src="https://pujakaromi.com/banner.jpg" alt="PujaKaromi" loading="lazy" />
+            <img src="https://images.unsplash.com/photo-1582510003544-4d00b7f74220?w=1600&auto=format&fit=crop&q=80"
+              alt="PujaKaromi" loading="lazy" />
             <div class="project-overlay"></div>
             <span class="project-tag">Spiritual</span>
           </div>
@@ -243,7 +381,8 @@
         <!-- Auditions.com -->
         <a href="https://auditions.com/" target="_blank" rel="noreferrer" class="project-card reveal">
           <div class="project-thumb">
-            <img src="https://auditions.com/images/home/right-banner-image.jpg" alt="Auditions.com" loading="lazy" />
+            <img src="https://images.unsplash.com/photo-1598387993441-a364f854c3e1?w=1600&auto=format&fit=crop&q=80"
+              alt="Auditions.com" loading="lazy" />
             <div class="project-overlay"></div>
             <span class="project-tag">Platform</span>
           </div>
@@ -281,8 +420,7 @@
         <!-- Fixturewire / THOR -->
         <a href="https://thethor.io/" target="_blank" rel="noreferrer" class="project-card reveal">
           <div class="project-thumb">
-            <img
-              src="https://media.istockphoto.com/id/2193635897/photo/smart-warehouse-inventory-management-system-concept.jpg?s=612x612&w=0&k=20&c=6411AaVqPwfEyIuzlhmaft48YV-JS_PhtaBq-FPiih4="
+            <img src="https://images.unsplash.com/photo-1578575437130-527eed3abbec?w=1600&auto=format&fit=crop&q=80"
               alt="Fixturewire / THOR" loading="lazy" />
             <div class="project-overlay"></div>
             <span class="project-tag">Logistics</span>
@@ -301,8 +439,7 @@
         <!-- CarServ -->
         <a href="#" class="project-card reveal">
           <div class="project-thumb">
-            <img
-              src="https://media.istockphoto.com/id/1260156485/vector/mechanic-performing-a-car-inspection-using-a-digital-app.jpg?s=612x612&w=0&k=20&c=LHPNBzcE7xKI5L_yOgBNr000vjXV3n2Lzli3795dcHE="
+            <img src="https://images.unsplash.com/photo-1625047509248-ec889cbff17f?w=1600&auto=format&fit=crop&q=80"
               alt="CarServ" loading="lazy" />
             <div class="project-overlay"></div>
             <span class="project-tag">B2B SaaS</span>
@@ -372,14 +509,73 @@
     </p>
   </footer>
 
+  <!-- Back to Top -->
+  <button class="back-to-top" id="backToTop" aria-label="Back to top">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+      stroke-linecap="round" stroke-linejoin="round">
+      <polyline points="18 15 12 9 6 15" />
+    </svg>
+  </button>
+
   <script>
     // Dynamic year
     document.getElementById('year').textContent = new Date().getFullYear();
 
-    // Navbar scroll effect
+    // Navbar scroll effect + scroll progress
     const navbar = document.getElementById('navbar');
+    const scrollProgress = document.getElementById('scrollProgress');
+    const backToTop = document.getElementById('backToTop');
+
     window.addEventListener('scroll', () => {
       navbar.classList.toggle('scrolled', window.scrollY > 50);
+
+      // Scroll progress bar
+      const scrollTop = window.scrollY;
+      const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+      const scrollPercent = (scrollTop / docHeight) * 100;
+      scrollProgress.style.width = scrollPercent + '%';
+
+      // Back to top visibility
+      backToTop.classList.toggle('visible', scrollTop > 400);
+    });
+
+    backToTop.addEventListener('click', () => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+
+    // Active nav link highlighting
+    const sections = document.querySelectorAll('section[id]');
+    const navLinks = document.querySelectorAll('.nav-link');
+
+    const activateLink = () => {
+      const scrollY = window.scrollY + 120;
+      sections.forEach(section => {
+        const top = section.offsetTop;
+        const height = section.offsetHeight;
+        const id = section.getAttribute('id');
+        const link = document.querySelector('.nav-link[href="#' + id + '"]');
+        if (link) {
+          link.classList.toggle('active', scrollY >= top && scrollY < top + height);
+        }
+      });
+    };
+    window.addEventListener('scroll', activateLink);
+
+    // Mobile hamburger menu
+    const hamburger = document.getElementById('hamburger');
+    const navLinksEl = document.getElementById('navLinks');
+
+    hamburger.addEventListener('click', () => {
+      hamburger.classList.toggle('open');
+      navLinksEl.classList.toggle('mobile-open');
+    });
+
+    // Close mobile menu on link click
+    navLinksEl.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        hamburger.classList.remove('open');
+        navLinksEl.classList.remove('mobile-open');
+      });
     });
 
     // Scroll reveal
